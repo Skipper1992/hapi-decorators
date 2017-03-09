@@ -117,7 +117,7 @@ function cache (cacheConfig) {
 exports.cache = cache
 
 function tags (tagConfig) {
-  debug('@cache setup')
+  debug('@tags setup')
   return function (target, key, descriptor) {
     setRoute(target, key, {
       config: {
@@ -132,7 +132,7 @@ function tags (tagConfig) {
 exports.tags = tags
 
 function description (descriptionConfig) {
-  debug('@cache setup')
+  debug('@description setup')
   return function (target, key, descriptor) {
     setRoute(target, key, {
       config: {
