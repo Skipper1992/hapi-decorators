@@ -116,6 +116,36 @@ function cache (cacheConfig) {
 
 exports.cache = cache
 
+function tags (tagConfig) {
+  debug('@cache setup')
+  return function (target, key, descriptor) {
+    setRoute(target, key, {
+      config: {
+        tags: tagConfig
+      }
+    })
+
+    return descriptor
+  }
+}
+
+exports.tags = tags
+
+function description (descriptionConfig) {
+  debug('@cache setup')
+  return function (target, key, descriptor) {
+    setRoute(target, key, {
+      config: {
+        description: descriptionConfig
+      }
+    })
+
+    return descriptor
+  }
+}
+
+exports.description = description
+
 function pre (pre) {
   debug('@pre setup')
   return function (target, key, descriptor) {
